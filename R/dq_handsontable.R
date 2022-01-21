@@ -268,28 +268,6 @@ dq_render_handsontable <- function(
     })
   }
 
-  # add observer for table changes
-  shiny::observeEvent(app_input[[id]], {
-    if (!is.null(app_input[[id]]$changes$source)) {
-      row_names <- as.character(rownames(rhandsontable::hot_to_r(app_input[[id]])))
-      col_names <- names(hot())
-      lapply(app_input[[id]]$changes$changes, function(ch) {
-        row <- ch[[1L]] + 1L
-        col <- ch[[2L]] + 1L
-        dqv$full[row_names[row], col_names[col]] <- ch[[4L]]
-      })
-      if (shiny::is.reactivevalues(table_data)) {
-        no_update <<- TRUE
-        table_data[[id]] <- dqv$full
-      } else if (inherits(table_data, "reactiveVal")) {
-        no_update <<- TRUE
-        table_data(dqv$full)
-      }
-      if (!is.null(filters)) {
-        update_filters(dqv$full[, columns, drop = FALSE], filters, session)
-      }
-    }
-  }, ignoreInit = TRUE)
 
   shiny::isolate(dqv$full)
 }
