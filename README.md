@@ -1,3 +1,7 @@
+# Edited
+
+This is a fork from the main DQshiny library, aims to include the undo, redo functionality, along with placing the pagination info on top of the table for readibiility purposes
+
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
