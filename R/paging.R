@@ -18,12 +18,9 @@ update_page <- function(df, page, size, session) {
 
 #' @author richard.kunze
 paging_row <- function(ns, page_size, sizes) {
-  shiny::fluidRow(
-    class = "vertical-align paging-row",
-    shiny::column(5L, align = "right", "Page:"),
-    shiny::column(1L, shiny::numericInput(ns("pageNum"), NULL, 1L, 1L)),
-    shiny::column(2L, shiny::textOutput(ns("maxPages"), inline = TRUE)),
-    shiny::column(3L, align = "right", "Items per page:"),
-    shiny::column(1L, shiny::selectizeInput(ns("pageSize"), NULL, sizes, page_size))
-  )
+    tags$div(style="display: inline-block;vertical-align:top; width: 50px;",'Page:'),
+    tags$div(style="display: inline-block;vertical-align:top; width: 100px;",numericInput('num', NULL, 1L, 1L)),
+    tags$div(style="display: inline-block;vertical-align:top; width: 100px;",tags$br()),
+    tags$div(style="display: inline-block;vertical-align:top; width: 100px;", 'Items per page:'),
+    tags$div(style="display: inline-block;vertical-align:top; width: 100px;",selectizeInput('sizes', NULL, c(25,50,100), 25)))
 }
