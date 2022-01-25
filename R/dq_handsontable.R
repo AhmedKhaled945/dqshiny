@@ -17,9 +17,10 @@ dq_handsontable_output <- function(id, width = 12L, offset = 0L) {
   ns <- dq_NS(id)
   shiny::fluidRow(shiny::column(
     width, offset = offset,
+    shiny::uiOutput(ns("pages")
     shiny::uiOutput(ns("filters")),
-    rhandsontable::rHandsontableOutput(id),
-    shiny::uiOutput(ns("pages")),
+    rhandsontable::rHandsontableOutput(id)
+    ),
     init()
   ))
 }
