@@ -23,7 +23,7 @@ paging_row <- function(ns, page_size, sizes) {
     tags$div(style="display: inline-block;vertical-align:top; width: 100px;",shiny::textOutput(ns("maxPages"), inline = TRUE)),
   
     tags$div(style="display: inline-block;vertical-align:top; width: 100px;",tags$br()),
-    tags$div(style="display: inline-block;vertical-align:top; width: 100px;", 'Items per page:'),
+    tags$div(style="display: inline-block;vertical-align:top; width: 150px;", 'Items per page:'),
     tags$div(style="display: inline-block;vertical-align:top; width: 100px;",shiny::selectizeInput(ns("pageSize"), NULL, sizes, page_size))
              )
 }
