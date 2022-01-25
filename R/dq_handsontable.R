@@ -19,8 +19,7 @@ dq_handsontable_output <- function(id, width = 12L, offset = 0L) {
     width, offset = offset,
     shiny::uiOutput(ns("pages")),
     shiny::uiOutput(ns("filters")),
-    rhandsontable::rHandsontableOutput(id)
-    ),
+    rhandsontable::rHandsontableOutput(id),
     init()
   ))
 }
